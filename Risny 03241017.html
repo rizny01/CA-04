@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stanford University</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Merriweather', serif;
+      background: #f0f4ff;
+      color: #222;
+    }
+    .stanford-header {
+      background: #1a237e;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 90px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .stanford-logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .stanford-logo img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 4px;
+      object-fit: cover;
+    }
+    .stanford-logo span {
+      font-size: 2.1rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-family: 'Merriweather', serif;
+    }
+    .stanford-nav {
+      display: flex;
+      gap: 28px;
+    }
+    .stanford-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.08rem;
+      font-weight: 500;
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+      transition: border 0.2s;
+    }
+    .stanford-nav a:hover {
+      border-bottom: 2px solid #fff;
+    }
+    .hero-section {
+      background: url('https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: #fff;
+      text-align: left;
+      padding: 130px 0 110px 0;
+      position: relative;
+    }
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(26,35,126,0.55);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin-left: 60px;
+    }
+    .hero-content h1 {
+      font-size: 3.1rem;
+      margin-bottom: 18px;
+      font-family: 'Merriweather', serif;
+      letter-spacing: 2px;
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 32px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .hero-content .hero-btn {
+      background: #fff;
+      color: #1976d2;
+      border: none;
+      padding: 14px 38px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .hero-content .hero-btn:hover {
+      background: #1976d2;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    .main-section {
+      max-width: 1150px;
+      margin: 60px auto 0 auto;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      padding: 44px 36px 36px 36px;
+    }
+    .main-section h2 {
+      color: #1a237e;
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+      text-align: center;
+      font-family: 'Merriweather', serif;
+    }
+    .main-section p {
+      font-size: 1.1rem;
+      color: #444;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .cards-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .info-card {
+      background: #e3eafc;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      width: 310px;
+      padding: 30px 20px 24px 20px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .info-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(25,118,210,0.09);
+    }
+    .info-card i {
+      font-size: 2.5rem;
+      color: #1976d2;
+      margin-bottom: 13px;
+    }
+    .info-card h3 {
+      font-size: 1.25rem;
+      color: #1976d2;
+      margin-bottom: 10px;
+      font-family: 'Merriweather', serif;
+    }
+    .info-card p {
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+    .gallery-section {
+      margin: 60px auto 0 auto;
+      max-width: 1150px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      padding: 44px 36px 36px 36px;
+    }
+    .gallery-section h2 {
+      color: #1a237e;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 24px;
+      font-family: 'Merriweather', serif;
+    }
+    /* Remove gallery-row and gallery-row img styles if not needed */
+    .stanford-footer {
+      background: #222;
+      color: #fff;
+      padding: 44px 0 18px 0;
+      margin-top: 60px;
+    }
+    .footer-container {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .footer-logo {
+      flex: 1 1 210px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .footer-logo img {
+      width: 62px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 2px;
+    }
+    .footer-logo h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #fff;
+      font-family: 'Merriweather', serif;
+    }
+    .footer-links {
+      flex: 1 1 150px;
+    }
+    .footer-links h4 {
+      color: #1976d2;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-links ul li {
+      margin-bottom: 7px;
+    }
+    .footer-links ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.98rem;
+      transition: color 0.2s;
+    }
+    .footer-links ul li a:hover {
+      color: #1976d2;
+    }
+    .footer-contact {
+      flex: 1 1 200px;
+    }
+    .footer-contact h4 {
+      color: #1976d2;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    .footer-contact p {
+      margin: 5px 0;
+      font-size: 0.98rem;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #444;
+      padding-top: 15px;
+      font-size: 13px;
+      color: #ccc;
+    }
+    @media (max-width: 900px) {
+      .cards-row, .gallery-row, .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .main-section, .gallery-section {
+        padding: 20px 8px;
+      }
+      .hero-content {
+        margin-left: 0;
+        padding: 0 20px;
+      }
+      .stanford-header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 10px;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="stanford-header">
+    <div class="stanford-logo">
+      <img src="https://wp.logos-download.com/wp-content/uploads/2019/06/Stanford_University_Logo.png?dl" alt="Stanford Logo" />
+      <span>STANFORD</span>
+    </div>
+    <nav class="stanford-nav">
+      <a href="#">About</a>
+      <a href="#">Academics</a>
+      <a href="#">Admissions</a>
+      <a href="#">Research</a>
+      <a href="#">Campus Life</a>
+      <a href="#">News</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Stanford University</h1>
+      <p>Innovating for a better world. Empowering leaders, advancing knowledge, and shaping the future since 1885.</p>
+      <a href="#" class="hero-btn">Explore Stanford</a>
+    </div>
+  </section>
+
+  <section class="main-section">
+    <h2>Why Stanford?</h2>
+    <p>
+      Stanford University is a place of discovery, creativity, and impact. Our vibrant community is dedicated to academic excellence, pioneering research, and fostering innovation for the benefit of humanity.
+    </p>
+    <div class="cards-row">
+      <div class="info-card">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Innovative Learning</h3>
+        <p>Experience interdisciplinary programs and hands-on learning led by world-class faculty.</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-globe-americas"></i>
+        <h3>Global Impact</h3>
+        <p>Stanford research and alumni are making a difference across the globe in every field.</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-tree"></i>
+        <h3>Beautiful Campus</h3>
+        <p>Enjoy a unique campus environment with iconic architecture and natural beauty.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <h2>Student Life at Stanford</h2>
+    <div class="cards-row">
+      <div class="info-card">
+        <i class="fas fa-users"></i>
+        <h3>Clubs & Organizations</h3>
+        <p>Join over 600 student groups, from entrepreneurship and robotics to arts and cultural societies.</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-heartbeat"></i>
+        <h3>Health & Wellness</h3>
+        <p>Access world-class recreation centers, counseling, and wellness programs for a balanced student experience.</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-music"></i>
+        <h3>Arts & Culture</h3>
+        <p>Enjoy concerts, theater, art exhibitions, and creative workshops throughout the year on campus.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="stanford-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="https://wp.logos-download.com/wp-content/uploads/2019/06/Stanford_University_Logo.png?dl" alt="Stanford Logo" />
+        <h3>Stanford University</h3>
+        <p>450 Serra Mall, Stanford, CA 94305, USA</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">Academics</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Library</a></li>
+          <li><a href="#">Alumni</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Support Stanford</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fas fa-phone"></i> +94 123-456-789</p>
+        <p><i class="fas fa-envelope"></i> info@stanford.edu</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Stanford University. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
